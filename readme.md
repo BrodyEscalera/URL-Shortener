@@ -3,7 +3,7 @@
 URL-Shortener is a simple node based application to create a randomly generated, shortened hyperlink of a URL.
 
 ## Code Example
-Simply input your URL into the browser after API/V1/YOUR URL GOES HERE
+Simply send a post request of the URL to  API/V1
 
 Returns JSON data
 {
