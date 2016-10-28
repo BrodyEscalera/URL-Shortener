@@ -3,7 +3,7 @@ var body_parser = require('body-parser'); //this requires the body_parser module
 var app = express()
 
 
-app.use('/api/v1', require('../routes/api.js')(express));// this sets the base of the URL to /api/v1
+app.use('/api', require('../routes/api.js')(express));// this sets the base of the URL to /api/v1
 
 var port = 3000; //this sets the active port for the server
 
