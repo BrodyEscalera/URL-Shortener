@@ -20,6 +20,21 @@ exports.find = ( payload, err, success) => {
     }).then(success).catch(err);
 }
 
+
+
+exports.go = ( payload, err, success) => {
+    db.url.find({
+        where:{
+            shortUrl: payload.shortUrl,
+        },
+        include:[{
+            all:true,
+            nested:true,
+        }],
+
+    }).then(success).catch(err);
+}
+
 exports.destroy = ( payload, err, success) => {
     db.url.destroy({
         where:{

@@ -11,7 +11,7 @@ app.use(body_parser.urlencoded({
 
 // app.use('/api', require('../routes/api.js')(express));// this sets the base of the URL to /api/v1 and passes express to the route.
 
-app.use('/api', require('../routes/api/url.js')(express));
+app.use('/api/v1', require('../routes/api/url.js')(express));
 
 
 

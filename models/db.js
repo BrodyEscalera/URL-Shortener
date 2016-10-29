@@ -22,16 +22,15 @@
         link:{
             type: Sequelize.STRING,
         },
-        mini:{
-            type: Sequelize.INTEGER,
-        },
-        minified:{
+        shortUrl: {
             type: Sequelize.STRING,
         },
+
+
     }); //defines the table
 
 
-sequelize.sync();
+    sequelize.sync();
 
 exports.sequelize = sequelize;
 exports.url = url;
