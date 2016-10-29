@@ -1,10 +1,10 @@
 module.exports = function(express){   //this imports the Express module which gives us access to the router function
-var router = express.Router(); //this sets the variable router to an instance of the Router function
-var path    = require("path");
+const router = express.Router(); //this sets the variable router to an instance of the Router function
+const path    = require("path");
 
 
     router.post('/v1', function (req, res) { //This gets the URL header from the browser for anything after the / using the * as a wildcard identifier.
-        console.log('test');
+        console.log('test', req.body);
         var random = (Math.random()*1e32).toString(36).slice(15); //This creates a random string to send to the body as JSON data. Currently I have the slice  function in here to reduce the size of the URL displayed.
 
 
