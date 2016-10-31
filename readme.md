@@ -8,14 +8,9 @@ localhost:3000/api/v1/url?link=www.google.com
 
                 OR
 
-POST
- {
-    "link":"www.google.com"
-
- }
-
-
-localhost:3000/api/v1/url?link=www.google.com
+POST a json object with desired link to the URL shown below.
+{"link":"www.google.com"}
+localhost:3000/api/v1/url
 
 
 Returns JSON data
@@ -46,8 +41,8 @@ This Project was created to meat the requirements of DWA Assignment 1.
 
 2. In terminal run
 
-$ cd YourPathHere/URL-Shortener
-$ node src/server.js
+* $ cd YourPathHere/URL-Shortener
+* $ node src/server.js
 
 3. Rename the .envSample file to .env and adjust parameters to match your local database.
 
@@ -57,11 +52,11 @@ $ node src/server.js
 
 Endpoints:
 CRUD for URLs
-POST /api/v1/url            Creates a shortened URL
-GET /api/v1/urls            Display all URLS
-GET /api/v1/url/:id         Displays URL based upon id
-POST /api/v1/url/:id        Update URL based upon id
-DELETE  /api/v1/url/:id     Delete url based upon id
+* POST /api/v1/url            Creates a shortened URL
+* GET /api/v1/urls            Display all URLS
+* GET /api/v1/url/:id         Displays URL based upon id
+* POST /api/v1/url/:id        Update URL based upon id
+* DELETE  /api/v1/url/:id     Delete url based upon id
 
 Routes:
 /go/:shortURL               redirects the user to the actual url based upon the short URL provided
