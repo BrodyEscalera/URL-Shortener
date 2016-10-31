@@ -20,3 +20,6 @@ const path    = require("path");
 
 return router; //this returns the router to the server.js
 };
+
+
+//this file is only used in versions 1.0.0 and 1.0.1.

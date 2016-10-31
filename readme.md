@@ -3,12 +3,36 @@
 URL-Shortener is a simple node based application to create a randomly generated, shortened hyperlink of a URL.
 
 ## Code Example
-Simply send a post request of the URL to  API/V1
+
+localhost:3000/api/v1/url?link=www.google.com
+
+                OR
+
+POST
+ {
+    "link":"www.google.com"
+
+ }
+
+
+localhost:3000/api/v1/url?link=www.google.com
+
 
 Returns JSON data
 {
-"URLLink": "http://Randomly Generated Link"  (the link will be limited to 5 alpha-numeric Characters Maximum)
+  "id": 1,
+  "link": "www.google.com",
+  "shortUrl": "min.oc4wc",
+  "updatedAt": "2016-10-31T00:27:33.000Z",
+  "createdAt": "2016-10-31T00:27:33.000Z"
 }
+
+based on this object you can Delete, Read, & Update by supplying the id to the Url:
+localhost:3000/api/v1/url/id  or in this case localhost:3000/api/v1/url/1
+
+For specific functionality see API Refernce below.
+    ***the shorUrl will be limited to 5 alpha-numeric Characters Maximum.
+
 
 ## Motivation
 
@@ -25,12 +49,23 @@ This Project was created to meat the requirements of DWA Assignment 1.
 $ cd YourPathHere/URL-Shortener
 $ node src/server.js
 
-3. In browser navigate to http://localhost:3000/api/v1
+3. Rename the .envSample file to .env and adjust parameters to match your local database.
 
+4. In browser navigate to http://localhost:3000/api/v1/url
 
 ## API Reference
 
-API Reference documents are forthcoming.
+Endpoints:
+CRUD for URLs
+POST /api/v1/url            Creates a shortened URL
+GET /api/v1/urls            Display all URLS
+GET /api/v1/url/:id         Displays URL based upon id
+POST /api/v1/url/:id        Update URL based upon id
+DELETE  /api/v1/url/:id     Delete url based upon id
+
+Routes:
+/go/:shortURL               redirects the user to the actual url based upon the short URL provided
+/api/v1/url                 loads GUI
 
 ## Tests
 
