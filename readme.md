@@ -59,8 +59,8 @@ CRUD for URLs
 * DELETE  /api/v1/url/:id     Delete url based upon id
 
 Routes:
-/go/:shortURL               redirects the user to the actual url based upon the short URL provided
-/api/v1/url                 loads GUI
+* /go/:shortURL               redirects the user to the actual url based upon the short URL provided
+* /api/v1/url                 loads GUI
 
 ## Tests
 
