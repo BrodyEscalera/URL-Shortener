@@ -1,7 +1,9 @@
+const logger = require('./logger');
 const db = require('./db');
 
 exports.create = (payload, err, success) => {
   db.url.create(payload).then(success).catch(err);
+
 }
 //this model handles searching the database for all available objects
 exports.findAll = ( err, success) => {
