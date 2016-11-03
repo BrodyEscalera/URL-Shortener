@@ -18,5 +18,5 @@ app.use('/api/v1', require('../routes/api/url.js')(express));
 exports.server = app.listen(port, function() { // this listens for the server to activate and prints to the terminal
     console.log('Server Active on', port);
 });
-console.log("this is a branch test");
+
 // module.exports = server;// this exports the server for testing. this line was replaced by prepending exports to the server variable above.
