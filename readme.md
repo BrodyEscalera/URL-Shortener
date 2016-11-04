@@ -66,9 +66,10 @@ Routes:
 
 Tests are can be run using Mocha in the terminal.
 
-## Debugging
+##Usage
 
-To enable debugging set DEBUG=true in the .env file, otherwise all logging will be saved to /logs/All-logs.log
+* To enable debugging set DEBUG=true in the .env file - Logs will be presented in the terminal window.
+* To disable debugging set DEBUG=false in the .env file - logs will be saved to /logs/All-logs.log.
 
 ## Contributors
 
