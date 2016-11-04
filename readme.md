@@ -31,7 +31,7 @@ For specific functionality see API Refernce below.
 
 ## Motivation
 
-This Project was created to meat the requirements of DWA Assignment 1.
+This Project was created to meat the requirements of DWA Assignments.
 
 ## Installation
 
