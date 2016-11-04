@@ -5,14 +5,6 @@ var debugKey = process.env['DEBUG'];
 
 
 if (debugKey == 'true') {
-    logger.add(winston.transports.File, {
-        level: 'debug',
-        filename: './logs/debug.log',
-        json: true,
-        maxsize: 5242880, //5MB
-        maxFiles: 5,
-        colorize: true });
-
     logger.add(winston.transports.Console, {
         level: 'debug',
         handleExceptions: true,
@@ -23,7 +15,13 @@ if (debugKey == 'true') {
 
 }
 else {
-
+    logger.add(winston.transports.File, {
+        level: 'debug',
+        filename: './logs/All-logs.log',
+        json: true,
+        maxsize: 5242880, //5MB
+        maxFiles: 5,
+        colorize: true });
     console.log("Application Version: "+ process.env['Version']  )
 }
 
