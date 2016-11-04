@@ -1,7 +1,10 @@
 const express = require('express'); //This requires the express module and sets to variable
 const body_parser = require('body-parser'); //this requires the body_parser module and sets to variable
-const app = express()
-const port = process.env.PORT || 3000; //this sets the active port for the server
+const app = express();
+const port = process.env.DB_PORT || 3000; //this sets the active port for the server
+const dotenv = require('dotenv').config();
+const logger = require('../models/logger');
+
 
 
 app.use(body_parser.json());
@@ -15,8 +18,12 @@ app.use('/api/v1', require('../routes/api/url.js')(express));
 
 
 
-exports.server = app.listen(port, function() { // this listens for the server to activate and prints to the terminal
-    console.log('Server Active on', port);
+server = app.listen(port, function() { // this listens for the server to activate and prints to the terminal
+    console.log('Server Active on port:', port);
 });
 
-// module.exports = server;// this exports the server for testing. this line was replaced by prepending exports to the server variable above.
+logger.debug("Environmental Debug Variable set to: "+process.env.DEBUG);
+module.exports = app;
+
+//this is a test
+module.exports = server;// this exports the server for testing. this line was replaced by prepending exports to the server variable above.

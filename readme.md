@@ -31,7 +31,7 @@ For specific functionality see API Refernce below.
 
 ## Motivation
 
-This Project was created to meat the requirements of DWA Assignment 1.
+This Project was created to meat the requirements of DWA Assignments.
 
 ## Installation
 
@@ -65,6 +65,11 @@ Routes:
 ## Tests
 
 Tests are can be run using Mocha in the terminal.
+
+##Usage
+
+* To enable debugging set DEBUG=true in the .env file - Logs will be presented in the terminal window.
+* To disable debugging set DEBUG=false in the .env file - logs will be saved to /logs/All-logs.log.
 
 ## Contributors
 
