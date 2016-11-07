@@ -26,7 +26,7 @@ Returns JSON data
   "createdAt": "2016-10-31T00:27:33.000Z"
 }
 ```
-Based on the json object you can Delete, Read, & Update by supplying the id to the Url:
+Based on the json object you can Delete, Read, & Update using Delete, GET and POST respectively by supplying the id to the Url:
 ```http localhost:3000/api/v1/url/id  ```
 
 or in this case
@@ -65,7 +65,10 @@ DB_SCHEMA=mysql
 DB_PORT=3306
 ```
 
-4. In browser navigate to http://localhost:3000/api/v1/url
+4. In browser navigate to
+```http
+http://localhost:3000/api/v1/url
+```
 
 ## API Reference
 
