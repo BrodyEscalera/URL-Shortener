@@ -1,7 +1,7 @@
 const urlString = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9'];
 
-/* The gen function below generates a random string based on the options array values provided in the urlString Variable
-*  The function is expecting an integer value to be passed into it which wil directly coorelate to the length of the generated url. for example gen(5) would produce a 5 digit randomly generated alphanumeric url. gen(2) a two digit etc...
+/** The gen function below generates a random string based on the options array values provided in the urlString Variable
+ The function is expecting an integer value to be passed into it which wil directly coorelate to the length of the generated url. for example gen(5) would produce a 5 digit randomly generated alphanumeric url. gen(2) a two digit etc...
 * */
 
 const gen = function(a){
@@ -14,5 +14,5 @@ const gen = function(a){
  return b
 };
 
-module.exports = gen; /*this function is being exported and can be instantiated in route files by adding the line
+module.exports = gen; /**this function is being exported and can be instantiated in route files by adding the line
 const yourVariable = require('../../models/urlRandomizer');  then call this function by providing an integer like so : yourVariable(0);   */

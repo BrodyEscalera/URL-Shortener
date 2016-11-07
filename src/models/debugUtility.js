@@ -1,4 +1,4 @@
-fs = require('fs');
+fs = require('fs');//default file system package module in node.js
 var debugKey = process.env['DEBUG'];  //this variable is set to the environmental DEBUG variable in the .env file.
 var option; //this variable is set based on the if statement below. It can either print to the terminal or save to a file.
 var trigger; // this variable is set based on the env DEBUG variable.
