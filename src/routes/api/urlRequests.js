@@ -1,7 +1,7 @@
 /**
  * Created by Brody on 10/29/16.
  */
-const logger = require ('../../models/logger');
+const logger = require ('../../models/debugUtility');
 const url = require('../../models/urlMethods');
 const path    = require("path");
 const jData = ' | Json data returned';

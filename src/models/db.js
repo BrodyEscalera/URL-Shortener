@@ -2,7 +2,8 @@
  * Created by Brody on 10/29/16.
  */
     const Sequelize = require('sequelize');
-    const logger = require('./logger');
+    const logger = require('./debugUtility');
+
 
 //this instantiates the seqelize module which aloows for acces to a mysql database
     const sequelize = new Sequelize(process.env.DB_NAME,process.env.DB_USER,process.env.DB_PASS,{
@@ -33,6 +34,6 @@
 
 
     sequelize.sync(); //syncs the database to this file.
-    logger.debug('sequlaize database synced...')
+    logger.debug('sequlaize database synced...');
 exports.sequelize = sequelize;
 exports.url = url;
