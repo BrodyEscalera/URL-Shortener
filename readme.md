@@ -1,5 +1,5 @@
 ## Synopsis
-[![Version]]
+ [![NPM Version][npm-image]][npm-url]
 URL-Shortener is a simple node based application to create a randomly generated, shortened hyperlink of a URL.
 
 ## Code Example
@@ -40,8 +40,9 @@ This Project was created to meat the requirements of DWA Assignments.
 1. Download source files.
 
 2. In terminal run
-
-* $ cd YourPathHere/URL-Shortener
+```bash
+ $ cd YourPathHere/URL-Shortener
+ ```
 * $ node src/server.js
 
 3. Rename the .envSample file to .env and adjust parameters to match your local database.
