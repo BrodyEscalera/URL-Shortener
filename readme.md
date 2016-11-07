@@ -14,6 +14,7 @@ localhost:3000/api/v1/url
 
 
 Returns JSON data
+```json
 {
   "id": 1,
   "link": "www.google.com",
@@ -21,7 +22,7 @@ Returns JSON data
   "updatedAt": "2016-10-31T00:27:33.000Z",
   "createdAt": "2016-10-31T00:27:33.000Z"
 }
-
+```
 based on this object you can Delete, Read, & Update by supplying the id to the Url:
 localhost:3000/api/v1/url/id  or in this case localhost:3000/api/v1/url/1
 
