@@ -9,9 +9,12 @@ localhost:3000/api/v1/url?link=www.google.com
                 OR
 
 POST a json object with desired link to the URL shown below.
-{"link":"www.google.com"}
+```http
 localhost:3000/api/v1/url
-
+```
+```json
+{"link":"www.google.com"}
+```
 
 Returns JSON data
 ```json
@@ -48,7 +51,7 @@ This Project was created to meat the requirements of DWA Assignments.
  $ node src/server.js
  ```
 3. Rename the .envSample file to .env and adjust parameters to match your local database.
-```js
+```env
 DB_NAME=apiCrud
 DB_USER=root
 DB_PASS=
