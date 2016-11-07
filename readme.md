@@ -44,8 +44,9 @@ This Project was created to meat the requirements of DWA Assignments.
 ```bash
  $ cd YourPathHere/URL-Shortener
  ```
-* $ node src/server.js
-
+```bash
+ $ node src/server.js
+ ```
 3. Rename the .envSample file to .env and adjust parameters to match your local database.
 
 4. In browser navigate to http://localhost:3000/api/v1/url
@@ -70,7 +71,10 @@ Tests are can be run using Mocha in the terminal.
 
 ##Usage
 
-* To enable debugging set DEBUG=true in the .env file - Logs will be presented in the terminal window.
+* To enable debugging set
+ ```env
+DEBUG=true in the .env file - Logs will be presented in the terminal window.
+ ```
 * To disable debugging set DEBUG=false in the .env file - logs will be saved to /logs/All-logs.log.
 
 ## Contributors
