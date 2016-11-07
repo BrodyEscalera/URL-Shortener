@@ -48,6 +48,14 @@ This Project was created to meat the requirements of DWA Assignments.
  $ node src/server.js
  ```
 3. Rename the .envSample file to .env and adjust parameters to match your local database.
+```js
+DB_NAME=apiCrud
+DB_USER=root
+DB_PASS=
+DB_HOST=127.0.0.1
+DB_SCHEMA=mysql
+DB_PORT=3306
+```
 
 4. In browser navigate to http://localhost:3000/api/v1/url
 
@@ -72,10 +80,10 @@ Tests are can be run using Mocha in the terminal.
 ##Usage
 
 * To enable debugging set
- ```env
-DEBUG=true in the .env file - Logs will be presented in the terminal window.
- ```
-* To disable debugging set DEBUG=false in the .env file - logs will be saved to /logs/All-logs.log.
+
+ ```env DEBUG=true``` in the .env file - Logs will be presented in the terminal window.
+
+* To disable debugging set  ```env DEBUG=false ``` in the .env file - logs will be saved to /logs/All-logs.log.
 
 ## Contributors
 
