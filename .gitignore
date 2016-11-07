@@ -6,3 +6,5 @@ node_modules
 .env_json
 out
 build
+.idea
+*idea

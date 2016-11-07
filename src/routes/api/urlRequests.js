@@ -2,16 +2,17 @@
  * Created by Brody on 10/29/16.
  */
 const logger = require ('../../models/logger');
-const url = require('../../models/url');
+const url = require('../../models/urlMethods');
 const path    = require("path");
 const jData = ' | Json data returned';
+const randomizer = require('../../models/urlRandomizer');
 module.exports = function(express) {
     const router = express.Router();
 
     //Checks for post via URL in browser or via postman --captures link and generates random link
     router.post('/url', function (req, res) {
-        logger.debug('router.post /url | url.js');
-        var random = (Math.random()*1e32).toString(36).slice(15);
+        logger.debug('router.post /url | urlMethods.js');
+        var random = randomizer(5); //This generates the random url with 5 alpha numeric characters.
         var link;
 
         if(req.body.link == null){
@@ -19,7 +20,7 @@ module.exports = function(express) {
             logger.debug('key value pair data posted /url/?link='+ link);
         }else{
 
-            link = req.body.link
+            link = req.body.link;
             logger.debug('json data posted, link:"' + link+'"');
         }
         var generated = {link:link,shortUrl:"min."+random};
@@ -28,7 +29,7 @@ module.exports = function(express) {
         // res.json({link:link});
         url.create(generated, function(err){
             res.status(500).json(err);
-            logger.debug('error - router.post /url | url.js');
+            logger.debug('error - router.post /url | urlMethods.js');
 
         }, function(data){
 
@@ -39,16 +40,16 @@ module.exports = function(express) {
 
     //loads default page for the baseline GUI
     router.get('/url', function (req, res) {
-        logger.debug('router.get /url | url.js');
+        logger.debug('router.get /url | urlMethods.js');
         res.sendFile(path.join(__dirname+'/views/index.html'));
         logger.debug('GET request for /url - index.html served');
 
     });
     //returns all available objects from database
     router.get('/urls', function (req, res) {
-        logger.debug('router.get /urls | url.js');
+        logger.debug('router.get /urls | urlMethods.js');
         url.findAll(req.body, function (err) {
-            logger.debug('error - router.get /urls | url.js');
+            logger.debug('error - router.get /urls | urlMethods.js');
             res.status(500).json(err);
         }, function (data) {
             res.status(200).json(data);
@@ -58,10 +59,10 @@ module.exports = function(express) {
     });
     //returns object by a specific Id
     router.get('/url/:id', function (req, res) {
-        logger.debug('router.get /url:id | url.js');
+        logger.debug('router.get /url:id | urlMethods.js');
         req.body.id = req.params.id;
         url.find(req.body, function (err) {
-            logger.debug('error - router.get /url:id | url.js');
+            logger.debug('error - router.get /url:id | urlMethods.js');
             res.status(500).json(err);
         }, function (data) {
             res.status(200).json(data);
@@ -71,11 +72,11 @@ module.exports = function(express) {
     });
     //updates object by a specific id
     router.post('/url/:id', function (req, res) {
-        logger.debug('router.post /url:id | url.js');
+        logger.debug('router.post /url:id | urlMethods.js');
         req.body.id = req.params.id;
         url.update(req.body, function (err) {
             res.status(500).json(err);
-            logger.debug('error - router.post /url:id | url.js');
+            logger.debug('error - router.post /url:id | urlMethods.js');
         }, function (data) {
             res.status(200).json(data);
         });
@@ -83,10 +84,10 @@ module.exports = function(express) {
     });
     //deletes an object by a specific id
     router.delete('/url/:id', function (req, res) {
-        logger.debug('router.delete /url:id | url.js');
+        logger.debug('router.delete /url:id | urlMethods.js');
         req.body.id = req.params.id;
         url.destroy(req.body, function (err) {
-            logger.debug('error - router.delete /url:id | url.js');
+            logger.debug('error - router.delete /url:id | urlMethods.js');
             res.status(500).json(err);
         }, function (data) {
             res.status(200).json(data);
@@ -95,10 +96,10 @@ module.exports = function(express) {
     });
     //redirects to URL based on mini url provided
     router.get('/url/go/:shortUrl', function (req, res) {
-        logger.debug('router.get /url/go/:shortUrl | url.js');
+        logger.debug('router.get /url/go/:shortUrl | urlMethods.js');
         req.body.shortUrl = req.params.shortUrl;
         url.go(req.body, function (err) {
-            logger.debug('error - router.get /url/go/:shortUrl | url.js');
+            logger.debug('error - router.get /url/go/:shortUrl | urlMethods.js');
             res.status(500).json(err);
         }, function (data) {
             //res.status(200).json(data.link);

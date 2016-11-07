@@ -3,7 +3,7 @@ const body_parser = require('body-parser'); //this requires the body_parser modu
 const app = express();
 const port = process.env.DB_PORT || 3000; //this sets the active port for the server
 const dotenv = require('dotenv').config();
-const logger = require('../models/logger');
+const logger = require('./models/logger');
 
 
 
@@ -12,9 +12,9 @@ app.use(body_parser.urlencoded({
     extended:true,
 }));
 
-// app.use('/api', require('../routes/api.js')(express));// this sets the base of the URL to /api/v1 and passes express to the route.
+// this sets the base of the URL to /api/v1 and passes express to the route.
 
-app.use('/api/v1', require('../routes/api/url.js')(express));
+app.use('/api/v1', require('./routes/api/urlRequests.js')(express));
 
 
 
