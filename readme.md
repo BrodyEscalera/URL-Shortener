@@ -3,17 +3,21 @@
 URL-Shortener is a simple node based application to create a randomly generated, shortened hyperlink of a URL.
 
 ## Code Example
-
+```http
 localhost:3000/api/v1/url?link=www.google.com
-
+```
                 OR
 
 POST a json object with desired link to the URL shown below.
-{"link":"www.google.com"}
+```http
 localhost:3000/api/v1/url
-
+```
+```json
+{"link":"www.google.com"}
+```
 
 Returns JSON data
+```json
 {
   "id": 1,
   "link": "www.google.com",
@@ -21,12 +25,17 @@ Returns JSON data
   "updatedAt": "2016-10-31T00:27:33.000Z",
   "createdAt": "2016-10-31T00:27:33.000Z"
 }
+```
+Based on the json object you can Delete, Read, & Update using Delete, GET and POST respectively by supplying the id to the Url:
+```http localhost:3000/api/v1/url/id  ```
 
-based on this object you can Delete, Read, & Update by supplying the id to the Url:
-localhost:3000/api/v1/url/id  or in this case localhost:3000/api/v1/url/1
+or in this case
+```http
+localhost:3000/api/v1/url/1
+```
 
-For specific functionality see API Refernce below.
-    ***the shorUrl will be limited to 5 alpha-numeric Characters Maximum.
+For specific functionality see API Reference below.
+    ***the shortUrl will be limited to 5 alpha-numeric Characters Maximum.
 
 
 ## Motivation
@@ -40,13 +49,26 @@ This Project was created to meat the requirements of DWA Assignments.
 1. Download source files.
 
 2. In terminal run
-
-* $ cd YourPathHere/URL-Shortener
-* $ node src/server.js
-
+```bash
+ $ cd YourPathHere/URL-Shortener
+ ```
+```bash
+ $ node src/server.js
+ ```
 3. Rename the .envSample file to .env and adjust parameters to match your local database.
+```env
+DB_NAME=apiCrud
+DB_USER=root
+DB_PASS=
+DB_HOST=127.0.0.1
+DB_SCHEMA=mysql
+DB_PORT=3306
+```
 
-4. In browser navigate to http://localhost:3000/api/v1/url
+4. In browser navigate to
+```http
+http://localhost:3000/api/v1/url
+```
 
 ## API Reference
 
@@ -68,8 +90,11 @@ Tests are can be run using Mocha in the terminal.
 
 ##Usage
 
-* To enable debugging set DEBUG=true in the .env file - Logs will be presented in the terminal window.
-* To disable debugging set DEBUG=false in the .env file - logs will be saved to /logs/All-logs.log.
+* To enable debugging set
+
+ ```env DEBUG=true``` in the .env file - Logs will be presented in the terminal window.
+
+* To disable debugging set  ```env DEBUG=false ``` in the .env file - logs will be saved to /logs/All-logs.log.
 
 ## Contributors
 
