@@ -29,7 +29,7 @@ module.exports = function(express) {
         // res.json({link:link});
         url.create(generated, function(err){
             res.status(500).json(err);
-            logger.debug('error - router.post /url | urlMethods.js');
+            logger.err('error - router.post /url | urlMethods.js');
 
         }, function(data){
 
@@ -49,7 +49,7 @@ module.exports = function(express) {
     router.get('/urls', function (req, res) {
         logger.debug('router.get /urls | urlMethods.js');
         url.findAll(req.body, function (err) {
-            logger.debug('error - router.get /urls | urlMethods.js');
+
             res.status(500).json(err);
         }, function (data) {
             res.status(200).json(data);
@@ -62,7 +62,7 @@ module.exports = function(express) {
         logger.debug('router.get /url:id | urlMethods.js');
         req.body.id = req.params.id;
         url.find(req.body, function (err) {
-            logger.debug('error - router.get /url:id | urlMethods.js');
+            logger.err('error - router.get /url:id | urlMethods.js');
             res.status(500).json(err);
         }, function (data) {
             res.status(200).json(data);
@@ -76,7 +76,7 @@ module.exports = function(express) {
         req.body.id = req.params.id;
         url.update(req.body, function (err) {
             res.status(500).json(err);
-            logger.debug('error - router.post /url:id | urlMethods.js');
+            logger.err('error - router.post /url:id | urlMethods.js');
         }, function (data) {
             res.status(200).json(data);
         });
@@ -87,7 +87,7 @@ module.exports = function(express) {
         logger.debug('router.delete /url:id | urlMethods.js');
         req.body.id = req.params.id;
         url.destroy(req.body, function (err) {
-            logger.debug('error - router.delete /url:id | urlMethods.js');
+            logger.err('error - router.delete /url:id | urlMethods.js');
             res.status(500).json(err);
         }, function (data) {
             res.status(200).json(data);
@@ -99,7 +99,7 @@ module.exports = function(express) {
         logger.debug('router.get /url/go/:shortUrl | urlMethods.js');
         req.body.shortUrl = req.params.shortUrl;
         url.go(req.body, function (err) {
-            logger.debug('error - router.get /url/go/:shortUrl | urlMethods.js');
+            logger.err('error - router.get /url/go/:shortUrl | urlMethods.js');
             res.status(500).json(err);
         }, function (data) {
             //res.status(200).json(data.link);
