@@ -1,11 +1,11 @@
 ## Synopsis
- [![NPM Version][npm-image]][npm-url]
+
 URL-Shortener is a simple node based application to create a randomly generated, shortened hyperlink of a URL.
 
 ## Code Example
-
+```http
 localhost:3000/api/v1/url?link=www.google.com
-
+```
                 OR
 
 POST a json object with desired link to the URL shown below.
@@ -26,11 +26,16 @@ Returns JSON data
   "createdAt": "2016-10-31T00:27:33.000Z"
 }
 ```
-based on this object you can Delete, Read, & Update by supplying the id to the Url:
-localhost:3000/api/v1/url/id  or in this case localhost:3000/api/v1/url/1
+Based on the json object you can Delete, Read, & Update by supplying the id to the Url:
+```http localhost:3000/api/v1/url/id  ```
 
-For specific functionality see API Refernce below.
-    ***the shorUrl will be limited to 5 alpha-numeric Characters Maximum.
+or in this case
+```http
+localhost:3000/api/v1/url/1
+```
+
+For specific functionality see API Reference below.
+    ***the shortUrl will be limited to 5 alpha-numeric Characters Maximum.
 
 
 ## Motivation
