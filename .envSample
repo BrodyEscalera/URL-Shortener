@@ -4,3 +4,5 @@ DB_PASS=
 DB_HOST=127.0.0.1
 DB_SCHEMA=mysql
 DB_PORT=3306
+Version=3.0.0
+DEBUG=false
