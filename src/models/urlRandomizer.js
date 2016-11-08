@@ -9,9 +9,16 @@ generated url. for example gen(5) would produce a 5 digit randomly generated
 alphanumeric url. gen(2) a two digit etc...
 * */
 const gen = (a) => {
-  var b = '';
+  /** The "use strict" diretive is necessary because Block-scoped declarations
+     (let, const, function, class) not yet supported outside strict mode **/
+
+  'use strict';
+
+  let b;
+  let randomString;
+  b = '';
   while (b.length < a && a > 0) {
-    var randomString = Math.random(); // This creates a randomly generated
+    randomString = Math.random(); // This creates a randomly generated
         // floating number ranging from 0 - 1 (0 inclusive and 1 exclusive)
     b += urlString[Math.floor(randomString * 36)]; // This line of code is
         // taking the math.floor function and multiplying it by the number of

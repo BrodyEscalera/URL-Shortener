@@ -13,8 +13,14 @@ module.exports = (express) => {
 
     // Checks for post via URL in browser or via postman --captures link and generates random link
   router.post('/url', (req, res) => {
-    var random = randomizer(5); // This generates the random url with 5 alpha numeric characters.
-    var link;
+/** The "use strict" diretive is necessary because Block-scoped declarations
+   (let, const, function, class) not yet supported outside strict mode **/
+
+    'use strict';
+
+    let link;
+
+    const random = randomizer(5); // This generates the random url with 5 alpha numeric characters.
     logger.debug('router.post /url | urlMethods.js');
 
     if (req.body.link == null) {
@@ -24,7 +30,7 @@ module.exports = (express) => {
       link = req.body.link;
       logger.debug('json data posted, link:"' + link + '"');
     }
-    var generated = { link: link, shortUrl: 'min.' + random };
+    const generated = { link, shortUrl: 'min.' + random };
     logger.debug('POST request to /url' + jData);
 
         // res.json({link:link});
@@ -55,7 +61,9 @@ module.exports = (express) => {
     // returns object by a specific Id
   router.get('/url/:id', (req, res) => {
     logger.debug('router.get /url:id | urlMethods.js');
-    req.body.id = req.params.id;
+    req.body.id = req.params.id; /** The eslint rule no-param-reassign is
+    irrelivent per eslint documentation "If you want to allow assignment to
+    function parameters, then you can safely disable this rule."*/
     url.find(req.body, (err) => {
       logger.err('error - router.get /url:id | urlMethods.js');
       res.status(500).json(err);
@@ -67,7 +75,9 @@ module.exports = (express) => {
     // updates object by a specific id
   router.post('/url/:id', (req, res) => {
     logger.debug('router.post /url:id | urlMethods.js');
-    req.body.id = req.params.id;
+    req.body.id = req.params.id;/** The eslint rule no-param-reassign is
+    irrelivent per eslint documentation "If you want to allow assignment to
+    function parameters, then you can safely disable this rule."*/
     url.update(req.body, (err) => {
       res.status(500).json(err);
       logger.err('error - router.post /url:id | urlMethods.js');
@@ -79,7 +89,9 @@ module.exports = (express) => {
     // deletes an object by a specific id
   router.delete('/url/:id', (req, res) => {
     logger.debug('router.delete /url:id | urlMethods.js');
-    req.body.id = req.params.id;
+    req.body.id = req.params.id;/** The eslint rule no-param-reassign is
+    irrelivent per eslint documentation "If you want to allow assignment to
+    function parameters, then you can safely disable this rule."*/
     url.destroy(req.body, (err) => {
       logger.err('error - router.delete /url:id | urlMethods.js');
       res.status(500).json(err);
@@ -91,7 +103,9 @@ module.exports = (express) => {
     // redirects to URL based on mini url provided
   router.get('/url/go/:shortUrl', (req, res) => {
     logger.debug('router.get /url/go/:shortUrl | urlMethods.js');
-    req.body.shortUrl = req.params.shortUrl;
+    req.body.shortUrl = req.params.shortUrl;/** The eslint rule no-param-reassign is
+    irrelivent per eslint documentation "If you want to allow assignment to
+    function parameters, then you can safely disable this rule."*/
     url.go(req.body, (err) => {
       logger.err('error - router.get /url/go/:shortUrl | urlMethods.js');
       res.status(500).json(err);
