@@ -16,6 +16,7 @@
     "sequelize": "^3.24.6",
     "supertest": "^2.0.1",
     "chai": "^3.5.0",
+    "async": "^2.1.2"
   },
   "devDependencies": {
     "eslint": "^3.9.1",
