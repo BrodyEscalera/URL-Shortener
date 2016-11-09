@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
 
 // this sets the base of the URL to /api/v1 and passes express to the route.
 
-app.use('/api/v1', require('./routes/api/urlRequests.js')(express));
+app.use('/api/v3', require('./routes/api/urlRequests.js')(express));
 // this listens for the server to activate and prints to the terminal
 const server = app.listen(port, () => {
   logger.log('Server Active on port:', port);

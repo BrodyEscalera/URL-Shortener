@@ -5,13 +5,13 @@ URL-Shortener is a simple node based application to create a randomly generated,
 ## Code Example
 Post a key value pair of "link" = "yourlink"
 ```http
-localhost:3000/api/v1/url?link=yourlink
+localhost:3000/api/v3/url?link=yourlink
 ```
                 OR
 
 POST a json object with desired link to the URL shown below.
 ```http
-localhost:3000/api/v1/url
+localhost:3000/api/v3/url
 ```
 ```json
 {"link":"yourlink"}
@@ -29,10 +29,10 @@ The POST request will randomly generate a shortURL and will Return a JSON object
 ```
 Based on the JSON object you can Delete, Read, & Update using Delete, GET and POST respectively. All object modifying request types require supplying the object id to the Url:
 ```http
-POST    localhost:3000/api/v1/url/:id
-DELETE  localhost:3000/api/v1/url/:id
-GET     localhost:3000/api/v1/url/:id
-UPDATE  localhost:3000/api/v1/url/:id
+POST    localhost:3000/api/v3/url/:id
+DELETE  localhost:3000/api/v3/url/:id
+GET     localhost:3000/api/v3/url/:id
+UPDATE  localhost:3000/api/v3/url/:id
 ```
 
 For specific functionality see API Reference below.
@@ -68,28 +68,28 @@ Version=x.x.x
 
 4. In browser navigate to
 ```http
-http://localhost:3000/api/v1/url
+http://localhost:3000/api/v3/url
 ```
 
 ## API Reference
 
 Endpoints:
-The endpoints urls can be adjusted in the urlRequest.js. (all tests are written for the default routes).
+The endpoints urls can be adjusted in the lib/urlRequest.js. (all tests are written for the default routes).
 
 CRUD for URLs
-* POST /api/v1/url            Creates a shortened URL
-* GET /api/v1/urls            Display all URLS
-* GET /api/v1/url/:id         Displays URL based upon id
-* POST /api/v1/url/:id        Update URL based upon id
-* DELETE  /api/v1/url/:id     Delete url based upon id
+* POST /api/v3/url            Creates a shortened URL
+* GET /api/v3/urls            Display all URLS
+* GET /api/v3/url/:id         Displays URL based upon id
+* POST /api/v3/url/:id        Update URL based upon id
+* DELETE  /api/v3/url/:id     Delete url based upon id
 
 Routes:
 * /go/:shortURL               redirects the user to the actual url based upon the short URL provided
-* /api/v1/url                 loads GUI
+* /api/v3/url                 loads GUI
 
 ## Tests
 
-Tests are located in the test folder and utilize supertest, chai, and mocha. In the terminal ensure the node server if disabled and then run the command
+Tests are located in the test folder and utilize supertest, chai, and mocha. In the terminal ensure the node server is disabled and then run the command
 
 ``` bash
 mocha
@@ -104,7 +104,7 @@ mocha
  ```
  in the .env file - Logs will be presented in the terminal window.
 
-* To disable debugging set  ```env DEBUG=false ``` in the .env file - logs will be saved to /logs/All-logs.log.
+* To disable debugging set  ```env DEBUG=false ``` in the .env file - logs will be suppressed from the terminal and saved to /logs/All-logs.log.
 
 The logging functions are handled by the debugUtility.js
 the four methods for debugging are
