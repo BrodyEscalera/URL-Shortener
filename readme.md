@@ -27,9 +27,12 @@ The POST request will randomly generate a shortURL and will Return a JSON object
   "createdAt": "2016-10-31T00:27:33.000Z"
 }
 ```
-Based on the JSON object you can Delete, Read, & Update using Delete, GET and POST respectively. All request types require supplying the object id to the Url:
+Based on the JSON object you can Delete, Read, & Update using Delete, GET and POST respectively. All object modifying request types require supplying the object id to the Url:
 ```http
-localhost:3000/api/v1/url/:id
+POST    localhost:3000/api/v1/url/:id
+DELETE  localhost:3000/api/v1/url/:id
+GET     localhost:3000/api/v1/url/:id
+UPDATE  localhost:3000/api/v1/url/:id
 ```
 
 For specific functionality see API Reference below.
