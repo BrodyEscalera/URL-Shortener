@@ -2,12 +2,12 @@
  * Created by Brody on 10/29/16.
  */
 
-const logger = require('../../models/debugUtility');
+const logger = require('../../lib/debugUtility');
 const url = require('../../models/urlMethods');
 const path = require('path');
 
 const jData = ' | Json data returned';
-const randomizer = require('../../models/urlRandomizer');
+const randomizer = require('../../lib/urlRandomizer');
 
 module.exports = (express) => {
   const router = express.Router();

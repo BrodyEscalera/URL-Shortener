@@ -118,8 +118,6 @@ describe('API route Tests', () => { // this runs through each available route wi
                 .expect((res) => {
                     console.log('this is the request')
                     expect(res.body).to.equal(1);
-
-
                   console.log(res.body)
                 })
                 .end(done);
