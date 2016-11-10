@@ -25,7 +25,7 @@ module.exports = (express) => {
     logger.debug('router.post /url | urlMethods.js');
 
     if (req.body.link == null) {
-      bodylink = req.query.link;
+      bodylink = req.param('link');
       logger.debug('key value pair data posted /url/?link=' + bodylink);
     } else {
       bodylink = req.body.link;
