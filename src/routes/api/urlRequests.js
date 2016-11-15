@@ -1,12 +1,13 @@
 /**
  * Created by Brody on 10/29/16.
  */
-const logger = require('../../models/debugUtility');
+
+const logger = require('../../lib/debugUtility');
 const url = require('../../models/urlMethods');
 const path = require('path');
 
 const jData = ' | Json data returned';
-const randomizer = require('../../models/urlRandomizer');
+const randomizer = require('../../lib/urlRandomizer');
 
 module.exports = (express) => {
   const router = express.Router();
@@ -18,19 +19,19 @@ module.exports = (express) => {
 
     'use strict';
 
-    let link;
+    let bodylink;
 
     const random = randomizer(5); // This generates the random url with 5 alpha numeric characters.
     logger.debug('router.post /url | urlMethods.js');
 
     if (req.body.link == null) {
-      link = req.params.link;
-      logger.debug('key value pair data posted /url/?link=' + link);
+      bodylink = req.param('link');
+      logger.debug('key value pair data posted /url/?link=' + bodylink);
     } else {
-      link = req.body.link;
-      logger.debug('json data posted, link:"' + link + '"');
+      bodylink = req.body.link;
+      logger.debug('json data posted, link:"' + bodylink + '"');
     }
-    const generated = { link, shortUrl: 'min.' + random };
+    const generated = { link: bodylink, shortUrl: 'min.' + random };
     logger.debug('POST request to /url' + jData);
 
         // res.json({link:link});
@@ -61,7 +62,8 @@ module.exports = (express) => {
     // returns object by a specific Id
   router.get('/url/:id', (req, res) => {
     logger.debug('router.get /url:id | urlMethods.js');
-    req.body.id = req.params.id; /** The eslint rule no-param-reassign is
+    const reqParam = req;
+    reqParam.body.id = reqParam.params.id; /** The eslint rule no-param-reassign is
     irrelivent per eslint documentation "If you want to allow assignment to
     function parameters, then you can safely disable this rule."*/
     url.find(req.body, (err) => {
@@ -74,8 +76,9 @@ module.exports = (express) => {
   });
     // updates object by a specific id
   router.post('/url/:id', (req, res) => {
+    const reqParam = req;
     logger.debug('router.post /url:id | urlMethods.js');
-    req.body.id = req.params.id;/** The eslint rule no-param-reassign is
+    reqParam.body.id = reqParam.params.id;/** The eslint rule no-param-reassign is
     irrelivent per eslint documentation "If you want to allow assignment to
     function parameters, then you can safely disable this rule."*/
     url.update(req.body, (err) => {
@@ -88,8 +91,9 @@ module.exports = (express) => {
   });
     // deletes an object by a specific id
   router.delete('/url/:id', (req, res) => {
+    const reqParam = req;
     logger.debug('router.delete /url:id | urlMethods.js');
-    req.body.id = req.params.id;/** The eslint rule no-param-reassign is
+    reqParam.body.id = req.params.id;/** The eslint rule no-param-reassign is
     irrelivent per eslint documentation "If you want to allow assignment to
     function parameters, then you can safely disable this rule."*/
     url.destroy(req.body, (err) => {
@@ -102,8 +106,9 @@ module.exports = (express) => {
   });
     // redirects to URL based on mini url provided
   router.get('/url/go/:shortUrl', (req, res) => {
+    const reqParam = req;
     logger.debug('router.get /url/go/:shortUrl | urlMethods.js');
-    req.body.shortUrl = req.params.shortUrl;/** The eslint rule no-param-reassign is
+    reqParam.body.shortUrl = req.params.shortUrl;/** The eslint rule no-param-reassign is
     irrelivent per eslint documentation "If you want to allow assignment to
     function parameters, then you can safely disable this rule."*/
     url.go(req.body, (err) => {
@@ -111,7 +116,7 @@ module.exports = (express) => {
       res.status(500).json(err);
     }, (data) => {
             // res.status(200).json(data.link);
-      res.redirect('http://' + data.link);
+      res.status(200).redirect('http://' + data.link);
       logger.debug('Redirect from database record ' + data.id + ' | ' + data.shortUrl + ' > ' + data.link);
     });
   });

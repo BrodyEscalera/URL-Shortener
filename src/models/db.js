@@ -2,7 +2,7 @@
  * Created by Brody on 10/29/16.
  */
     const Sequelize = require('sequelize');
-    const logger = require('./debugUtility');
+    const logger = require('../lib/debugUtility');
 // this instantiates the seqelize module which aloows for acces to a mysql database
     const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
       host: process.env.DB_HOST,
@@ -25,6 +25,9 @@
       shortUrl: {
         type: Sequelize.STRING,
       },
+      testId:{
+          type: Sequelize.STRING,
+      }
 
 
     }); // defines the table

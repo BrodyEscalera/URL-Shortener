@@ -3,40 +3,39 @@
 URL-Shortener is a simple node based application to create a randomly generated, shortened hyperlink of a URL.
 
 ## Code Example
+Post a key value pair of "link" = "yourlink"
 ```http
-localhost:3000/api/v1/url?link=www.google.com
+localhost:3000/api/v3/url?link=yourlink
 ```
                 OR
 
 POST a json object with desired link to the URL shown below.
 ```http
-localhost:3000/api/v1/url
+localhost:3000/api/v3/url
 ```
 ```json
-{"link":"www.google.com"}
+{"link":"yourlink"}
 ```
 
-Returns JSON data
+The POST request will randomly generate a shortURL and will Return a JSON object created to the database.
 ```json
 {
   "id": 1,
-  "link": "www.google.com",
+  "link": "yourlink",
   "shortUrl": "min.oc4wc",
   "updatedAt": "2016-10-31T00:27:33.000Z",
   "createdAt": "2016-10-31T00:27:33.000Z"
 }
 ```
-Based on the json object you can Delete, Read, & Update using Delete, GET and POST respectively by supplying the id to the Url:
-```http localhost:3000/api/v1/url/id  ```
-
-or in this case
+Based on the JSON object you can Delete, Read, & Update using Delete, GET and POST respectively. All object modifying request types require supplying the object id to the Url:
 ```http
-localhost:3000/api/v1/url/1
+POST    localhost:3000/api/v3/url/:id
+DELETE  localhost:3000/api/v3/url/:id
+GET     localhost:3000/api/v3/url/:id
+UPDATE  localhost:3000/api/v3/url/:id
 ```
 
 For specific functionality see API Reference below.
-    ***the shortUrl will be limited to 5 alpha-numeric Characters Maximum.
-
 
 ## Motivation
 
@@ -44,9 +43,9 @@ This Project was created to meat the requirements of DWA Assignments.
 
 ## Installation
 
-* installation instructions are predicated on the user having previously installed node.js on his/her machine.
+* installation instructions are predicated on the user having previously installed mysql & node.js on his/her machine. The application will use a local mysql database based on the settings of the .env file.  
 
-1. Download source files.
+1. Download source files and install required node modules according to the package.json
 
 2. In terminal run
 ```bash
@@ -63,38 +62,82 @@ DB_PASS=
 DB_HOST=127.0.0.1
 DB_SCHEMA=mysql
 DB_PORT=3306
+DEBUG=false
+Version=x.x.x
 ```
 
 4. In browser navigate to
 ```http
-http://localhost:3000/api/v1/url
+http://localhost:3000/api/v3/url
 ```
 
 ## API Reference
 
 Endpoints:
+The endpoints urls can be adjusted in the lib/urlRequest.js. (all tests are written for the default routes).
+
 CRUD for URLs
-* POST /api/v1/url            Creates a shortened URL
-* GET /api/v1/urls            Display all URLS
-* GET /api/v1/url/:id         Displays URL based upon id
-* POST /api/v1/url/:id        Update URL based upon id
-* DELETE  /api/v1/url/:id     Delete url based upon id
+* POST /api/v3/url            Creates a shortened URL
+* GET /api/v3/urls            Display all URLS
+* GET /api/v3/url/:id         Displays URL based upon id
+* POST /api/v3/url/:id        Update URL based upon id
+* DELETE  /api/v3/url/:id     Delete url based upon id
 
 Routes:
 * /go/:shortURL               redirects the user to the actual url based upon the short URL provided
-* /api/v1/url                 loads GUI
+* /api/v3/url                 loads GUI
 
 ## Tests
 
-Tests are can be run using Mocha in the terminal.
+Tests are located in the test folder and utilize supertest, chai, and mocha. In the terminal ensure the node server is disabled and then run the command
+
+``` bash
+mocha
+```
 
 ##Usage
 
 * To enable debugging set
 
- ```env DEBUG=true``` in the .env file - Logs will be presented in the terminal window.
+ ```env
+ DEBUG=true
+ ```
+ in the .env file - Logs will be presented in the terminal window.
 
-* To disable debugging set  ```env DEBUG=false ``` in the .env file - logs will be saved to /logs/All-logs.log.
+* To disable debugging set  ```env DEBUG=false ``` in the .env file - logs will be suppressed from the terminal and saved to /logs/All-logs.log.
+
+The logging functions are handled by the debugUtility.js
+the four methods for debugging are
+* err
+* warn
+* debug
+* log
+
+to include the debugUtility in your files place
+ ```js
+const logger = require('yourPathTo/lib/debugUtility');
+ ```
+
+To use the looger throughout your code simple treat the logger as you would a
+ ```js
+ console.log()
+  ```
+  Example:
+  ```js
+  //some code
+  logger.log('Message I want to send to the terminal or log file without any tag');
+  //some code
+  logger.debug('Message I want to send to terminal or log file with a debug flag');
+  //some code
+  logger.err('Message I want to send to terminal or log file with an err flag');
+  //some code
+  logger.warn('Message I want to send to terminal or log file with an warn flag')
+   ```
+Colors for the individual flags can be modified in the debugUtility.js
+
+
+
+
 
 ## Contributors
 

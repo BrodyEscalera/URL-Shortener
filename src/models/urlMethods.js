@@ -1,4 +1,4 @@
-const logger = require('./debugUtility');
+const logger = require('../lib/debugUtility');
 const db = require('./db');
 
 exports.create = (payload, err, success) => {

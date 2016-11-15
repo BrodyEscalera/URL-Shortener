@@ -5,7 +5,7 @@ const bodyParser = require('body-parser'); // this requires the body_parser modu
 const app = express();
 const port = process.env.DB_PORT || 3000; // this sets the active port for the server
 require('dotenv').config();
-const logger = require('./models/debugUtility');
+const logger = require('./lib/debugUtility');
 
 
 app.use(bodyParser.json());
@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
 
 // this sets the base of the URL to /api/v1 and passes express to the route.
 
-app.use('/api/v1', require('./routes/api/urlRequests.js')(express));
+app.use('/api/v3', require('./routes/api/urlRequests.js')(express));
 // this listens for the server to activate and prints to the terminal
 const server = app.listen(port, () => {
   logger.log('Server Active on port:', port);
