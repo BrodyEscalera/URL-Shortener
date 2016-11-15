@@ -95,50 +95,6 @@ Tests are located in the test folder and utilize supertest, chai, and mocha. In 
 mocha
 ```
 
-##Usage
-
-* To enable debugging set
-
- ```env
- DEBUG=true
- ```
- in the .env file - Logs will be presented in the terminal window.
-
-* To disable debugging set  ```env DEBUG=false ``` in the .env file - logs will be suppressed from the terminal and saved to /logs/All-logs.log.
-
-The logging functions are handled by the debugUtility.js
-the four methods for debugging are
-* err
-* warn
-* debug
-* log
-
-to include the debugUtility in your files place
- ```js
-const logger = require('yourPathTo/lib/debugUtility');
- ```
-
-To use the looger throughout your code simple treat the logger as you would a
- ```js
- console.log()
-  ```
-  Example:
-  ```js
-  //some code
-  logger.log('Message I want to send to the terminal or log file without any tag');
-  //some code
-  logger.debug('Message I want to send to terminal or log file with a debug flag');
-  //some code
-  logger.err('Message I want to send to terminal or log file with an err flag');
-  //some code
-  logger.warn('Message I want to send to terminal or log file with an warn flag')
-   ```
-Colors for the individual flags can be modified in the debugUtility.js
-
-
-
-
-
 ## Contributors
 
 Main Contributor Brody Escalera.

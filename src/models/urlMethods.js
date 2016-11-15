@@ -1,4 +1,4 @@
-const logger = require('../lib/debugUtility');
+const logger = require('brody_logger');
 const db = require('./db');
 
 exports.create = (payload, err, success) => {

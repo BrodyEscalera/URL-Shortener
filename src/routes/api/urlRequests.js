@@ -2,7 +2,7 @@
  * Created by Brody on 10/29/16.
  */
 
-const logger = require('../../lib/debugUtility');
+const logger = require('brody_logger');
 const url = require('../../models/urlMethods');
 const path = require('path');
 
