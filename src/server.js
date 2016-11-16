@@ -3,8 +3,7 @@ const bodyParser = require('body-parser'); // this requires the body_parser modu
 
 
 const app = express();
-// const port = process.env.DB_PORT || 3000; // this sets the active port for the server
-const port = 3000;
+const port = process.env.PORT || 3000; // this sets the active port for the server
 require('dotenv').config();
 const logger = require('brody_logger');
 
