@@ -11,7 +11,7 @@
       pool: {
         max: 5,
         min: 0,
-        idle: 10000,
+        idle: 30000,
       },
       logging: false,
 
@@ -25,8 +25,8 @@
       shortUrl: {
         type: Sequelize.STRING,
       },
-      testId:{
-          type: Sequelize.STRING,
+      testId: {
+        type: Sequelize.STRING,
       }
 
 
