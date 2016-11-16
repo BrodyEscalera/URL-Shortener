@@ -5,7 +5,7 @@ const bodyParser = require('body-parser'); // this requires the body_parser modu
 const app = express();
 // const port = process.env.DB_PORT || 3000; // this sets the active port for the server
 const port = 3000;
-// require('dotenv').config();
+require('dotenv').config();
 const logger = require('brody_logger');
 
 
@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({
 app.use('/api/v3', require('./routes/api/urlRequests.js')(express));
 // this listens for the server to activate and prints to the terminal
 const server = app.listen(port, () => {
-  logger.log('Server Active on port:', port);
+  logger.log('Server Active on port: ' + port);
 });
 
 logger.debug('Environmental Debug Variable set to: ' + process.env.DEBUG);
