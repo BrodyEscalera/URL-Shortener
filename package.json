@@ -4,8 +4,10 @@
   "description": "URL Shortener",
   "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node your-script.js"
   },
+
   "author": "Brody Escalera",
   "license": "ISC",
   "dependencies": {
