@@ -37,7 +37,7 @@ gulp.task('commit', () => {
 });
 
 gulp.task('push', function(){
-  console.log('pushing to branch...')
+  console.log('pushing to release branch...')
   git.push('origin', 'release', function (err) {
     if (err) throw err;
   });
