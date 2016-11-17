@@ -1,6 +1,6 @@
 {
   "name": "node_api",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "URL Shortener",
   "main": "src/server.js",
   "engines": {
