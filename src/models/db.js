@@ -27,7 +27,7 @@
       },
       testId: {
         type: Sequelize.STRING,
-      }
+      },
 
 
     }); // defines the table
