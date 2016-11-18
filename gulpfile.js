@@ -8,6 +8,14 @@ const util = require('brody_logger');
 const jeditor = require('gulp-json-editor');
 const current = require('./package.json');
 
+/* The automatic bumping is done by pulling the bump utility from the brody
+ logger and using it to increment the version number. The version number is
+  pulled from the current package.json and then sent to the bump utility in
+    brody_logger. Then the modified package.json is then added, committed and
+     pushed to the release branch in github. In terminal the gulp task should
+      be called like this: $gulp bump --push=patch or $gulp bump --push=minor
+      $gulp bump --push=major depending on the type of version change you are
+       seeking*/
 gulp.task('bump', ['changeVersion', 'add', 'commit', 'push'], () => {
 
 });
