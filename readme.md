@@ -98,6 +98,13 @@ mocha
 ## Contributors
 
 Main Contributor Brody Escalera.
+##Workflow
+ Create a feature branch off of the master branch and use a feature branch workflow to submit your feature. All features require a passing unit test before they will be merged to the main branch. After all unit tests are passing a pull request of your feature will be merged into the master branch. Then the master branch will be pushed to the release branch. Codeship will run all applications tests, if all are passing then the release branch will auto deploy on heroku. Following a final review of the deployed release a manual deployment to the production server will be promoted on heroku.  
+## Deployment
+1.) The master branch is pushed to the release branch
+2.) Codeship runs the unit tests against the release branch
+3.) If All tests are passed the release branch is deployed to the staging server
+4.)After Final review the staging server is manually promoted to the production server.
 
 ##Production Process
 
