@@ -3,10 +3,6 @@
   "version": "3.0.0",
   "description": "URL Shortener",
   "main": "src/server.js",
-  "engines":{
-    "node": "v4.5.0",
-    "npm": "2.15.9"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server.js"
