@@ -16,7 +16,7 @@
   "dependencies": {
     "async": "^2.1.2",
     "body-parser": "^1.15.2",
-    "brody_logger": "^2.0.0",
+    "brody_logger": "^2.0.2",
     "chai": "^3.5.0",
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
